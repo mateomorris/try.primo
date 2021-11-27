@@ -4,6 +4,7 @@
 	import { browser } from '$app/env';
 	import Primo, { modal as primoModal, registerProcessors } from '@primo-app/primo';
 	import Build from './_Build.svelte';
+	import * as primo from '@primo-app/primo/package.json';
 
 	if (browser) {
 		import('../compiler/processors').then(({ html, css }) => {
@@ -48,6 +49,10 @@
 {#if browser}
 	<Primo {role} {saving} on:save={async ({ detail: data }) => saveData(data)} />
 {/if}
+<div id="app-version">
+	<span>try primo v{__DESKTOP_VERSION__}</span>
+	<span>primo v{primo.version}</span>
+</div>
 
 <style global lang="postcss">
 	body {
@@ -98,5 +103,16 @@
 		--primo-ring-primored-thick: 0px 0px 0px 3px var(--primo-color-primored);
 
 		--primo-border-radius: 5px;
+	}
+	#app-version {
+		font-size: 0.75rem;
+		color: var(--color-gray-4);
+		position: fixed;
+		bottom: 0.5rem;
+		left: 0.5rem;
+
+		span:first-child {
+			margin-right: 0.5rem;
+		}
 	}
 </style>
