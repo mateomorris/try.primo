@@ -1,12 +1,12 @@
 <script>
 	import '../reset.css';
+	import { onMount } from 'svelte';
 	import { browser } from '$app/env';
 	import Primo, { modal as primoModal, registerProcessors } from '@primo-app/primo';
 	import Build from './_Build.svelte';
 
 	if (browser) {
 		import('../compiler/processors').then(({ html, css }) => {
-			console.log({ html, css });
 			registerProcessors({ html, css });
 		});
 	}
@@ -29,6 +29,11 @@
 		}
 	]);
 
+	onMount(async () => {
+		const res = await fetch('https://try-primo-template-mateomorris.vercel.app/primo.json');
+		console.log(res);
+	});
+
 	let role = 'developer';
 
 	async function saveData(updatedSite) {
@@ -40,7 +45,9 @@
 	let saving = false;
 </script>
 
-<Primo {role} {saving} on:save={async ({ detail: data }) => saveData(data)} />
+{#if browser}
+	<Primo {role} {saving} on:save={async ({ detail: data }) => saveData(data)} />
+{/if}
 
 <style global lang="postcss">
 	body {
