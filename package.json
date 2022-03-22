@@ -19,13 +19,13 @@
     "prettier-plugin-svelte": "^2.4.0",
     "svelte": "^3.42.6",
     "svelte-preprocess": "^4.9.8",
-    "tailwindcss": "^2.2.19"
+    "tailwindcss": "^2.2.19",
+    "typescript": "^4.6.2"
   },
   "type": "module",
   "dependencies": {
-    "@primo-app/primo": "^1.4.25",
+    "@primo-app/primo": "^1.4.28",
     "file-saver": "^2.0.5",
-    "idb-keyval": "^6.0.3",
     "js-beautify": "^1.14.0",
     "jszip": "^3.7.1",
     "lodash": "^4.17.21",

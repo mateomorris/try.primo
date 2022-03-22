@@ -1,4 +1,3 @@
-import * as idb from 'idb-keyval';
 import _ from 'lodash'
 import PromiseWorker from 'promise-worker';
 import svelteWorker from './workers/worker?worker'
@@ -11,19 +10,12 @@ import postCSSWorker from './workers/postcss.worker?worker'
 const PostCSSWorker = new postCSSWorker
 const cssPromiseWorker = new PromiseWorker(PostCSSWorker);
 
-// Clear out storage to avoid mucking it up
-// idb.clear()
 
 export async function html({ code, data, buildStatic = true, format = 'esm'}) {
 
   const finalData = _.cloneDeep(data)
 
   let finalRequest = buildFinalRequest(finalData)
-
-  const cached = await idb.get(JSON.stringify(finalRequest))
-  if (cached) {
-    return cached
-  }
 
   // const newData = await replaceImagesWithBase64(data)
   const newData = data
@@ -73,7 +65,6 @@ export async function html({ code, data, buildStatic = true, format = 'esm'}) {
     }
   } 
 
-  await idb.set(JSON.stringify(finalRequest), final)
   return final
 
   function buildFinalRequest(finalData) {
