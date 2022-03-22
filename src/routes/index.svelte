@@ -1,35 +1,36 @@
 <script>
 	import '../reset.css';
 	import axios from 'axios';
-	import { onMount } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 	import { browser } from '$app/env';
 	import Primo, { modal as primoModal, registerProcessors } from '@primo-app/primo';
 	import Build from './_Build.svelte';
 	import * as primo from '@primo-app/primo/package.json';
 
+	setContext('track', () => {});
+
 	if (browser) {
 		import('../compiler/processors').then(({ html, css }) => {
 			registerProcessors({ html, css });
 		});
-	}
-
-	primoModal.register([
-		{
-			id: 'BUILD',
-			component: Build,
-			componentProps: {
-				siteName: 'Website' // TODO - change
-			},
-			options: {
-				route: 'build',
-				width: 'md',
-				header: {
-					title: 'Build to Github',
-					icon: 'fab fa-github'
+		primoModal.register([
+			{
+				id: 'BUILD',
+				component: Build,
+				componentProps: {
+					siteName: 'Website' // TODO - change
+				},
+				options: {
+					route: 'build',
+					width: 'md',
+					header: {
+						title: 'Build to Github',
+						icon: 'fab fa-github'
+					}
 				}
 			}
-		}
-	]);
+		]);
+	}
 
 	onMount(async () => {
 		const res = await axios.get('https://try-primo-template-mateomorris.vercel.app/primo.json');
