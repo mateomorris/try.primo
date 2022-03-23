@@ -32,9 +32,11 @@
 		]);
 	}
 
+	let data;
 	onMount(async () => {
-		const res = await axios.get('https://try-primo-template-mateomorris.vercel.app/primo.json');
+		const res = await axios.get('https://api.primo.af/try-primo.json');
 		console.log(res);
+		data = res.data;
 	});
 
 	let role = 'developer';
@@ -49,7 +51,7 @@
 </script>
 
 {#if browser}
-	<Primo {role} {saving} on:save={async ({ detail: data }) => saveData(data)} />
+	<Primo {data} {role} {saving} on:save={async ({ detail: data }) => saveData(data)} />
 {/if}
 <div id="app-version">
 	<span>try primo v{__DESKTOP_VERSION__}</span>
