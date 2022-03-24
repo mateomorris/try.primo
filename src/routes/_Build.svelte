@@ -118,8 +118,7 @@
 		If you download Primo, you'll be able to publish your site updates directly to your favorite web
 		host (assuming your favorite web host is Vercel). You can download it at <a
 			href="https://primo.af"
-			target="blank"
-			class="link">primo.af</a
+			target="blank">primo.af</a
 		>.
 	</div>
 	<div class="publish">
@@ -138,10 +137,6 @@
 		}
 	}
 
-	.link {
-		text-decoration: underline;
-	}
-
 	.subtitle {
 		color: var(--color-gray-2);
 		margin-bottom: 1rem;
@@ -153,6 +148,10 @@
 		padding: 2rem 0;
 		max-width: 600px;
 		margin: 0 auto;
+
+		a {
+			text-decoration: underline;
+		}
 	}
 
 	main {
