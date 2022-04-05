@@ -25,7 +25,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@primo-app/primo": "^1.4.40",
+    "@primo-app/primo": "^1.4.41",
     "file-saver": "^2.0.5",
     "js-beautify": "^1.14.0",
     "jszip": "^3.7.1",
