@@ -1,6 +1,5 @@
 <script>
 	import '../reset.css';
-	import axios from 'axios';
 	import { onMount, setContext } from 'svelte';
 	import { browser } from '$app/env';
 	import Primo, { modal as primoModal, registerProcessors } from '@primo-app/primo';
@@ -34,8 +33,9 @@
 
 	let data;
 	onMount(async () => {
-		const res = await axios.get('https://api.primo.af/try-primo.json');
-		console.log(res);
+		// const res = await axios.get('https://api.primo.af/try-primo.json');
+		const res = await fetch('https://api.primo.af/try-primo.json').then((res) => res.json());
+		console.log({ res });
 		data = res.data;
 	});
 
