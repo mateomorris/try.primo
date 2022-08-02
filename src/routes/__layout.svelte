@@ -2,11 +2,12 @@
 	import '../reset.css';
 	import { onMount, setContext } from 'svelte';
 	import { browser } from '$app/env';
-	import Primo, { registerProcessors, fieldTypes } from '@primo-app/primo';
+	import Primo, { modal as primoModal, registerProcessors, fieldTypes } from '@primo-app/primo';
 	import * as primo from '@primo-app/primo/package.json';
 	import ImageField from './ImageField.svelte';
 	import * as tryprimo from '../../package.json';
 	import { saved } from '@primo-app/primo/src/stores/app/misc';
+	import Build from './_Build.svelte';
 
 	setContext('ENVIRONMENT', 'TRY');
 
@@ -19,6 +20,23 @@
 				id: 'image',
 				label: 'Image',
 				component: ImageField
+			}
+		]);
+		primoModal.register([
+			{
+				id: 'BUILD',
+				component: Build,
+				componentProps: {
+					siteName: 'Website' // TODO - change
+				},
+				options: {
+					route: 'build',
+					width: 'md',
+					header: {
+						title: 'Build to Github',
+						icon: 'fab fa-github'
+					}
+				}
 			}
 		]);
 	}

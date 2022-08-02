@@ -12,7 +12,6 @@
 	const siteID = $page.params.site;
 
 	let loading = false;
-
 	async function downloadSite() {
 		loading = true;
 		const zip = new JSZip();
@@ -111,12 +110,12 @@
 	let pages = [];
 </script>
 
-<ModalHeader icon="fas fa-globe" title="Publish" variants="mb-4" />
+<ModalHeader icon="fas fa-globe" title="Publish" variants="mb-4" showLocaleSelector={false} />
 
 <main class="primo-reset">
 	<div class="content">
-		If you download Primo, you'll be able to publish your site updates directly to your favorite web
-		host (assuming your favorite web host is Vercel). You can download it at <a
+		If you download Primo, you'll be able to publish your site updates directly to a web host
+		(assuming your favorite web host is Vercel). You can download it at <a
 			href="https://primo.so"
 			target="blank">primo.so</a
 		>.
@@ -146,7 +145,6 @@
 
 	.content {
 		padding: 2rem 0;
-		max-width: 600px;
 		margin: 0 auto;
 
 		a {
@@ -164,7 +162,6 @@
 			display: grid;
 			gap: 1rem;
 			place-items: flex-start normal;
-			max-width: 600px;
 			margin: 0 auto;
 
 			.boxes {
