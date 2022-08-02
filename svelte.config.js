@@ -12,7 +12,7 @@ const config = {
         },
       },
       define: {
-					'__DESKTOP_VERSION__': JSON.stringify(process.env.npm_package_version),
+					'__TRY_VERSION__': JSON.stringify(process.env.npm_package_version),
 			}
 		}
 	},
