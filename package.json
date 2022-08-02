@@ -2,7 +2,7 @@
   "name": "try.primo",
   "version": "0.0.1",
   "scripts": {
-    "dev": "npm link @primo-app/primo && svelte-kit dev",
+    "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "preview": "svelte-kit preview",
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. .",
@@ -25,11 +25,13 @@
   },
   "type": "module",
   "dependencies": {
+    "browser-image-compression": "^2.0.0",
     "file-saver": "^2.0.5",
     "js-beautify": "^1.14.0",
     "jszip": "^3.7.1",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
+    "mini-svg-data-uri": "^1.4.4",
     "promise-worker": "^2.0.1"
   }
 }
