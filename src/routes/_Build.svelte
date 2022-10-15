@@ -114,11 +114,8 @@
 
 <main class="primo-reset">
 	<div class="content">
-		If you download Primo, you'll be able to publish your site updates directly to a web host
-		(assuming your favorite web host is Vercel). You can download it at <a
-			href="https://primo.so"
-			target="blank">primo.so</a
-		>.
+		If you download Primo, you'll be able to publish your site updates directly to a web host. You
+		can download it at <a href="https://primo.so" target="blank">primo.so</a>.
 	</div>
 	<div class="publish">
 		<Button on:click={downloadSite}>Download your site</Button>
