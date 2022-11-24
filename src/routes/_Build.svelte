@@ -33,7 +33,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
           </head>
 
-          <body class="primo-page">   
+          <body id="page">   
             <iframe allow="clipboard-read; clipboard-write self https://its.primo.af" border="0" src="https://its.primo.af/${siteName}" style="height:100vh;width:100vw;position:absolute;top:0;left:0;border:0;"></iframe>
           </body>
         </html>
